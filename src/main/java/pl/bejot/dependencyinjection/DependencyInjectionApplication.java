@@ -3,10 +3,7 @@ package pl.bejot.dependencyinjection;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
-import pl.bejot.dependencyinjection.controllers.ConstructorInjectedController;
-import pl.bejot.dependencyinjection.controllers.MyController;
-import pl.bejot.dependencyinjection.controllers.PropertyInjectedController;
-import pl.bejot.dependencyinjection.controllers.SetterInjectedController;
+import pl.bejot.dependencyinjection.controllers.*;
 
 @SpringBootApplication
 public class DependencyInjectionApplication {
@@ -32,6 +29,10 @@ public class DependencyInjectionApplication {
 		ConstructorInjectedController constructorInjectedController =
 				(ConstructorInjectedController) ctx.getBean("constructorInjectedController");
 		System.out.println(constructorInjectedController.getGreeting());
+
+		System.out.println("------- I18N");
+		I18nController i18nController = (I18nController) ctx.getBean("i18nController");
+		System.out.println(i18nController.getGreeting());
 	}
 
 }
