@@ -1,8 +1,10 @@
 package pl.bejot.dependencyinjection.services;
 
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
-@Service("cat")
+@Profile("cat")
+@Service("petService")
 public class CatPetService implements PetService {
     @Override
     public String getPetType() {
