@@ -1,5 +1,6 @@
 package pl.bejot.dependencyinjection.controllers;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import pl.bejot.dependencyinjection.services.GreetingService;
 
@@ -9,7 +10,7 @@ public class ConstructorInjectedController {
 
     // In Constructor Injection @Autowired annotation isn't required,
     // because constructor is the only way to instantiate the final property.
-    public ConstructorInjectedController(GreetingService greetingService) {
+    public ConstructorInjectedController(@Qualifier("constructorGreetingService") GreetingService greetingService) {
         this.greetingService = greetingService;
     }
 
